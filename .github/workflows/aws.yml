@@ -2,7 +2,7 @@ name: Deploy QA
 on:
   push:
     branches:
-      - develop
+      - main
 jobs:
   deploy-s3:
     runs-on: ubuntu-latest
