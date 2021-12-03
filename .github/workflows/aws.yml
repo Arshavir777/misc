@@ -9,10 +9,10 @@ jobs:
     environment: QA
     steps:
         - uses: actions/checkout@v2
-        - name: Setup node 15.14
-          uses: actions/setup-node@v1
-          with:
-            node-version: 15.14
+        # - name: Setup node 15.14
+        #   uses: actions/setup-node@v1
+        #   with:
+        #     node-version: 15.14
         - name: Node version
           run: node -v
 
