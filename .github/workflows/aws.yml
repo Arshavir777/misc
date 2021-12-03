@@ -1,0 +1,23 @@
+name: Deploy QA
+on:
+  push:
+    branches:
+      - develop
+jobs:
+  deploy-s3:
+    runs-on: ubuntu-latest
+    environment: QA
+    steps:
+        - uses: actions/checkout@v2
+        - name: Setup node 15.14
+          uses: actions/setup-node@v1
+          with:
+            node-version: 15.14
+
+        - name: Install dependencies
+          run: yarn
+          
+        - name: Node version
+          run: node -v
+
+
