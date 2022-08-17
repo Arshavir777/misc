@@ -27,7 +27,7 @@ jobs:
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v1
 
-      -name: Get images and keep versions
+      - name: Get images and keep versions
         run: |
           aws ecr list-images --repository-name ${{secrets.ECR_REPOSITORY}} 
 
