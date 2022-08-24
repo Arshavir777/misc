@@ -24,7 +24,8 @@ jobs:
           cd /Users/arshavir/Documents/www/FMS/fms_toolkit
       - name: git pull
         run: |
-          git pull
+          git pull prod
+
       - name: build feed-next container
         env:
           fms_env: staging
