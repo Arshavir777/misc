@@ -2,31 +2,13 @@ name: Deploy Feed to stage
 on:
   push:
     branches: [ leap-beta ]
-    # paths: 'services/fms_feed/**'
+    paths: 'images/**'
 
 jobs:
-  # This workflow contains a single job called "build"
-  build:
-    # The type of runner that the job will run on
-    runs-on: self-hosted
-
-    defaults:
-      run:
-        working-directory: /Users/arshavir/Documents/www/FMS
-
+  print_context:
+    runs-on: ubuntu-latest
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
-
-      # Runs a set of commands using the runners shell
-      - name: Change directory to FMS
+      - env:
+          EVENT_CONTEXT: ${{ toJSON(github.event) }}
         run: |
-          cd /Users/arshavir/Documents/www/FMS/fms_toolkit
-      - name: git pull
-        run: |
-          git pull prod
-
-      - name: build feed-next container
-        env:
-          fms_env: staging
-        run: docker-compose up --no-deps --build -d feed-next
+          echo $EVENT_CONTEXT
