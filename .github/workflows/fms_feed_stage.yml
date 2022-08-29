@@ -2,13 +2,21 @@ name: Deploy Feed to stage
 on:
   push:
     branches: [ leap-beta ]
-    paths: 'images/**'
 
 jobs:
   print_context:
     runs-on: ubuntu-latest
     steps:
-      - env:
-          EVENT_CONTEXT: ${{ toJSON(github.event) }}
+      - uses: dorny/paths-filter@v2
+        id: changes
+        with:
+          filters: |
+            images:
+              - 'images/**'
+            misc:
+              - 'misc/**'
+      - print:
         run: |
-          echo $EVENT_CONTEXT
+          echo ${{steps.changes.outputs}}
+
+          
