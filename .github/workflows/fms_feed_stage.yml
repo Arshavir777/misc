@@ -11,14 +11,13 @@ jobs:
 
     defaults:
       run:
-        working-directory: /Users/arshavir/Documents/actions-runner/_work
+        working-directory: /Users/arshavir/Documents/gh
 
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-        with:
-          path: 'gha'
 
       - name: git pull
         run: |
+          echo pwd
           echo $GITHUB_WORKSPACE
