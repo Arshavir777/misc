@@ -19,4 +19,5 @@ jobs:
 
       - name: git pull
         run: |
+          pwd
           git pull
