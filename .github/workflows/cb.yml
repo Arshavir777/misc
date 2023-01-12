@@ -1,0 +1,18 @@
+name: TotalScopeStage
+
+on:
+  push:
+    branches: [ stage ]
+
+jobs:
+  deploy-staging:
+    name: Deploy Project to STAGING Server
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/stage'
+    steps:
+      - uses: actions/checkout@v1
+      - name: Deploy to Stage
+        uses: deployphp/action@v1
+        with:
+          private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+          dep: deploy stage
