@@ -1,0 +1,17 @@
+{
+    "name": "arshavir/gh-actions",
+    "autoload": {
+        "psr-4": {
+            "Arshavir\\GhActions\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "arshavir777",
+            "email": "arshogharibyan@gmail.com"
+        }
+    ],
+    "require-dev": {
+        "deployer/deployer": "^7.1"
+    }
+}
